@@ -1,14 +1,18 @@
 /* Gradient Background and Container */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .gradient {
     width: 100vw;
-    height: 100vh;
+    height:100vh;
     display: flex;
     flex-direction: column;
+    border-radius: 0;
+    color: white;
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: #ffffff;
-    font-family: 'Arial', sans-serif;
+    background-color: #042028;
+    font-family: 'Poppins', sans-serif;
   }
   
   /* Navbar */
@@ -16,16 +20,17 @@
     position: absolute;
     top: 0;
     width: 100%;
+    height: 13vh;
     padding: 20px;
     display: flex;
     justify-content: space-between;
-    background-color: white;
     align-items: center;
     z-index: 2;
   }
   
   .logo-container {
     display: flex;
+    color: white;
     align-items: center;
     zoom: 1;
   }
@@ -67,7 +72,7 @@
     position: absolute;
     top: 60px;
     right: 20px;
-    background-color: white;
+    background-color: #052028;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -78,6 +83,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: #052028;
     align-items: center;
     height: 80vh; /* Centers the content vertically */
     z-index: 1;
@@ -96,7 +102,7 @@
     justify-content: center;
     width: 250px;
     height: 50px;
-    background-color: white;
+    background-color: #7ED6DF;
     border: 1px solid #ddd;
     border-radius: 30px;
     font-weight: bold;

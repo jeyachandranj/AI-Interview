@@ -22,65 +22,98 @@ function InterviewInstruction() {
         }
       };
     return (
-        <>
-              <ToastContainer />
-        <div className="flex flex-center">
-        <div className="interview-process-container flex flex-col items-center justify-center"> 
-         <div style={{ position: "fixed", top: 0, left: 0, width: "200px", zIndex: 1000 }}>
-        <TopBar />
-      </div>
-      <div className="div-container">
-        <h1 className="font-bold">INTERVIEW PROCESS</h1>
-        </div>            
-        <div className="section-container">
-            <div className="section-box">
-                        <div className="icon-text">
-                            <FaBullseye className="icon" />
-                            <h3>Stay Focused</h3>
-                        </div>
-                        <p>Once the interview begins, your screen will be monitored. Any diversions or prolonged absences will automatically end the interview.</p>
-                    </div>
-                   
-                    <div className="section-box">
-                        <div className="icon-text">
-                            <FaFileAlt className="icon" />
-                            <h3>Resume-Based Questions</h3>
-                        </div>
-                        <p>Tailored questions will be asked based on your resume. Be prepared to answer questions about your experiences, skills, and achievements.</p>
-                    </div>
-                   
-                    <div className="section-box">
-                        <div className="icon-text">
-                            <FaRobot className="icon" />
-                            <h3>AI-Powered Evaluation</h3>
-                        </div>
-                        <p>Get real-time feedback on your responses and performance, analyzed by our AI-powered model in real time, assessing both content and quality.</p>
-                    </div>
+      <section className="bg-gray-100 h-full">
+        <ToastContainer />
+        <button
+          onclick={() => window.history.back()}
+          class="absolute top-4 outline-none left-4 border-none text-gray-600 hover:text-gray-900 font-medium text-lg "
+        >
+          &larr; Back
+        </button>
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+          <div className="bg-white m-10 shadow-lg rounded-lg p-8 max-w-4xl w-full">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-gray-800">
+                INTERVIEW PROCESS
+              </h1>
+            </div>
 
-                    <div className="section-box">
-                        <div className="icon-text">
-                            <FaChartLine className="icon" />
-                            <h3>Receive Your Performance Report</h3>
-                        </div>
-                        <p>After the interview, get a detailed report on your performance, including insights and areas for improvement, which will be emailed to you.</p>
-                    </div>
+            <div className="space-y-6">
+              <div className="p-6 bg-white border rounded-lg shadow-md flex items-start">
+                <FaBullseye className="text-pink-500 mr-4 mt-1 w-8 h-8" />
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">
+                    Stay Focused
+                  </h3>
+                  <p className="text-gray-600">
+                    Once the interview begins, your screen will be monitored.
+                    Any diversions or prolonged absences will automatically end
+                    the interview.
+                  </p>
+                </div>
+              </div>
 
-                    <div className="terms-section">
-                        <input
-                            type="checkbox"
-                            id="termsCheckbox"
-                            checked={isChecked}
-                            onChange={handleCheckboxChange}
-                        />
-                        <label htmlFor="termsCheckbox" className="terms-label">
-                            I agree to the terms and conditions
-                        </label>
-                        <button
+              <div className="p-6 bg-white border rounded-lg shadow-md flex items-start">
+                <FaFileAlt className="text-pink-500 mr-4 mt-1 w-8 h-8" />
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">
+                    Resume-Based Questions
+                  </h3>
+                  <p className="text-gray-600">
+                    Tailored questions will be asked based on your resume. Be
+                    prepared to answer questions about your experiences, skills,
+                    and achievements.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 bg-white border rounded-lg shadow-md flex items-start">
+                <FaRobot className="text-pink-500 mr-4 mt-1 w-8 h-8" />
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">
+                    AI-Powered Evaluation
+                  </h3>
+                  <p className="text-gray-600">
+                    Get real-time feedback on your responses and performance,
+                    analyzed by our AI-powered model in real time, assessing
+                    both content and quality.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 bg-white border rounded-lg shadow-md flex items-start">
+                <FaChartLine className="text-pink-500 mr-4 mt-1 w-8 h-8" />
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">
+                    Receive Your Performance Report
+                  </h3>
+                  <p className="text-gray-600">
+                    After the interview, get a detailed report on your
+                    performance, including insights and areas for improvement,
+                    which will be emailed to you.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex items-center justify-start space-x-3">
+              <input
+                type="checkbox"
+                id="termsCheckbox"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+                className="mr-2"
+              />
+
+              <label htmlFor="termsCheckbox" className="text-gray-600">
+                I agree to the terms and conditions
+              </label>
+              <button
                 onClick={handleContinue}
-                className={`mt-4 ml-10 inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold shadow-sm ${
+                className={`w-32 flex p-2 ml-4 ${
                   isChecked
-                    ? 'bg-indigo-500 text-white hover:bg-indigo-600'
-                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                    ? "bg-indigo-500 text-white hover:bg-indigo-600"
+                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 }`}
               >
                 Continue
@@ -99,11 +132,10 @@ function InterviewInstruction() {
                   />
                 </svg>
               </button>
-                    </div>
-                </div>
             </div>
+          </div>
         </div>
-        </>
+      </section>
     );
 }
 

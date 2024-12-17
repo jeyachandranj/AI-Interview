@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./firebase"; // Import your Firebase auth configuration
 import "./Login.css";
+
 import CenterImage from "../assets/main.png";
 import Logo from "../assets/logo.png";
 import { FaBars } from "react-icons/fa";
 import GoogleButton from "react-google-button"; // Import the GoogleButton component
+import Bento from "../components/BentoDesign/Bento";
 
 const LandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -88,50 +90,59 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="gradient">
-      <header className="navbar" style={{ backgroundColor: "white", color: "black" }}>
+    <div className="gradient bg-dot-pattern h-screen">
+      <header className="navbar" style={{ color: "black" }}>
         <div className="logo-container">
-          <img
-            src={Logo}
-            alt="SolveMeter Logo"
-            className="logo"
+          <span
+            className="logo-text"
             style={{
-              width: "100px",
-              height: "80px",
-              marginTop: "20px",
-              marginLeft: "20px",
-              transform: `scale(${scale})`, // Corrected template literal
-              transition: "transform 0.3s ease",
+              fontSize: "30px",
+              marginLeft: "35px",
+              fontFamily: "Poppins",
             }}
-          />
-          <span className="logo-text" style={{ fontSize: "40px", marginLeft: "35px", fontFamily: "Cursive" }}>
-            TalentLens
+          >
+            AI Interview
           </span>
         </div>
-        <nav>
-          <FaBars className="menu-icon" onClick={toggleMenu} />
-          <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}> {/* Fixed className syntax */}
-            <li>Home</li>
-            <li>About</li>
-            <li>Service</li>
-            <li>Contact</li>
-          </ul>
-        </nav>
       </header>
-      <div className="main-content">
-        <img src={CenterImage} alt="centered content" className="center-image" />
+      <div className="main-content bg-dotted h-screen relative w-full  ">
+        <div className="absolute inset-0 bg-[radial-gradient(circle,white,transparent_1px)] bg-[length:50px_50px] pointer-events-none"></div>
+
+        <h1 style={{ fontSize: "35px", textAlign: "center" }}>
+          Empowering You to <br />
+          <span style={{ fontSize: "40px" }}>Ace Every Interview</span>
+        </h1>
+
         {user ? (
-          <div>
-            <h3>Welcome, {user.displayName}!</h3>
-            <button onClick={handleLogout} className="googlebutton mt-4 rounded-pill">
+          <div className="relative p-6 rounded-lg">
+            {/* Dotted background effect */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle,black_1px,transparent_1px)] bg-[length:20px_20px] pointer-events-none rounded-lg"></div>
+
+            <h3 className="relative z-10 text-white text-center font-sans">Welcome, {user.displayName}!</h3>
+            <button
+              onClick={handleLogout}
+              className="googlebutton mt-4 rounded-pill relative z-10"
+            >
               Log Out
             </button>
           </div>
         ) : (
-          <button onClick={handleGoogleSignIn} disabled={isSigningIn} className="googlebutton mt-4 rounded-pill">
-            {isSigningIn ? "Signing in..." : <b>Sign in with Google</b>}
-          </button>
+          <div className="relative p-6 rounded-lg">
+            {/* Dotted background effect */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle,black_1px,transparent_1px)] bg-[length:20px_20px] pointer-events-none rounded-lg"></div>
+
+            <button
+              style={{ backgroundColor: "#7ED6DF", color: "black" }}
+              onClick={handleGoogleSignIn}
+              disabled={isSigningIn}
+              className="googlebutton mt-4 rounded-pill relative z-10"
+            >
+              {isSigningIn ? "Signing in..." : <b>Sign in with Google</b>}
+            </button>
+            {error && <p className="error-text relative z-10">{error}</p>}
+          </div>
         )}
+
         {error && <p className="error-text">{error}</p>}
       </div>
     </div>
